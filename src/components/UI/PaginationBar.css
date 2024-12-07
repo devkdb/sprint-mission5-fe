@@ -1,0 +1,29 @@
+.paginationBar {
+  display: flex; /* 버튼들을 가로로 배치 */
+  align-items: center; /* 세로 방향으로 가운데 정렬 */
+  justify-content: center; /* 가로 방향으로 중앙 정렬 */
+  gap: 4px; /* 버튼들 사이에 4px 간격 */
+}
+
+.paginationButton {
+  border: 1px solid #e5e7eb; /* 테두리 색상 */
+  border-radius: 50%; /* 버튼을 원형으로 만듦 */
+  width: 40px; /* 버튼의 너비와 높이를 40px로 고정 */
+  height: 40px;
+  color: #6b7280; /* 텍스트 색상 */
+  font-weight: 600; /* 텍스트 굵기 */
+  font-size: 16px; /* 텍스트 크기 */
+  display: flex; /* 텍스트를 가운데 정렬하기 위한 플렉스 박스 */
+  align-items: center; /* 세로 정렬 */
+  justify-content: center; /* 가로 정렬 */
+}
+
+.paginationButton:disabled {
+  cursor: default; /* 비활성화된 버튼에서는 기본 커서를 사용 */
+  opacity: 0.5; /* 비활성화된 버튼을 흐리게 표시 */
+}
+
+.paginationButton.active {
+  background-color: var(--blue); /* 활성화된 버튼의 배경색 (CSS 변수 사용) */
+  color: #fff; /* 활성화된 버튼의 텍스트 색상 */
+}

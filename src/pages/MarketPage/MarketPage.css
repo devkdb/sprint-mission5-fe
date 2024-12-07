@@ -1,0 +1,233 @@
+/* 섹션 제목: 굵은 글꼴과 큰 폰트 크기로 섹션 제목을 강조. */
+.sectionTitle {
+  color: #111827;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: normal;
+  margin-bottom: 16px;
+}
+
+/* ItemCard  
+  이미지: 카드에 정사각형 이미지를 표시하며, 둥근 모서리와 간격 적용.
+  텍스트: 상품 이름은 한 줄로 제한하며 넘칠 경우 생략(ellipsis) 처리.
+*/
+.itemCard {
+  color: #1f2937;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.itemCardThumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1; /* 정사각형으로 만들어 줌 */
+  margin-bottom: 16px;
+}
+
+.itemSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.itemName {
+  font-size: 16px;
+  font-weight: 400;
+  /* 모든 상품 카드가 동일한 크기일 수 있도록 상품명을 한 줄로 제한 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemPrice {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.favoriteCount {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+/* 베스트 상품 섹션:
+  위아래에 여백을 추가하여 섹션 간격 확보. */
+.bestItemsContainer {
+  padding-top: 17px;
+  padding-bottom: 24px;
+}
+
+/* 전체 상품 카드 섹션:
+  그리드 레이아웃: 두 개의 열로 정렬하며, 카드 간 간격 조정. */
+.allItemsCardSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 8px;
+}
+
+.allItemsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 검색 및 정렬 버튼:
+  정렬 버튼은 클릭 시 드롭다운 메뉴가 나타나도록 설계. 
+  검색창은 둥근 모서리와 입력 필드 스타일을 설정.
+*/
+.sortButtonWrapper {
+  position: relative;
+}
+
+.sortDropdownTriggerButton {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.searchBarWrapper {
+  display: flex;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 9px 16px;
+  flex: 1;
+  align-items: center;
+  width: 289px;
+}
+
+.searchBarInput {
+  border: none;
+  flex: 1;
+  background-color: inherit;
+  margin-left: 4px;
+}
+
+.searchBarInput::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.searchBarInput:focus {
+  outline: none;
+}
+
+.createItemButton {
+  margin: 0px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 11.5px 23px;
+}
+
+/* 페이지네이션 섹션:
+  페이지네이션 위아래 간격 추가. */
+.paginationBarWrapper {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.sortBtn {
+  width: 130px;
+  padding: 12px 20px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.mobileSortBtn {
+  display: none;
+}
+
+/* 열 수와 간격을 확대. */
+@media (min-width: 744px) {
+  .bestItemsContainer {
+    margin-bottom: 40px;
+  }
+
+  .bestItemsCardSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .allItemsSectionHeader {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+  }
+
+  .allItemsCardSection {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 16px;
+  }
+}
+
+/* 더 많은 열을 표시. */
+@media (min-width: 1280px) {
+  .bestItemsCardSection {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .allItemsCardSection {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px 24px;
+  }
+}
+@media (max-width: 1199px) {
+  .searchBarInput {
+    width: 206px;
+  }
+}
+
+/* 모바일에서 요소를 줄줄이 배치하고, 정렬 버튼을 작은 아이콘으로 대체. */
+@media (max-width: 744px) {
+  .allItemsSectionHeader {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sectionTitle {
+    flex: 1 1 auto;
+    order: 1;
+  }
+
+  .createItemButton {
+    flex: 0 0 auto;
+    order: 2;
+  }
+
+  .searchBarWrapper {
+    flex: 1 1 auto;
+    display: flex;
+    width: calc(100% - 60px); /* 두 번째 줄에서 가능한 모든 공간을 차지 */
+    order: 3;
+  }
+
+  .sortButtonWrapper {
+    flex: 0 0 auto;
+    align-self: flex-end;
+    order: 4;
+  }
+
+  .sortDropdownTriggerButton {
+    padding: 9px;
+  }
+
+  .mobileSortBtn {
+    display: inline;
+  }
+
+  .sortBtn {
+    display: none;
+  }
+}

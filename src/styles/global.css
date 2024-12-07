@@ -1,0 +1,216 @@
+/* Mobile styles */
+/* CSS 변수 설정:
+색상: 회색 계열과 메인 색상(파란색)을 변수로 정의.
+레이아웃: 헤더 높이를 변수로 지정하여 재사용 가능하게 설정. */
+:root {
+  /* Gray scale */
+  --gray-900: #1b1d1f;
+  --gray-800: #26282b;
+  --gray-600: #454c53;
+  --gray-500: #72787f;
+  --gray-400: #9ea4a8;
+  --gray-200: #e5e7eb;
+  --gray-100: #e8ebed;
+  --gray-50: #f7f7f8;
+
+  /* Primary color */
+  --blue: #3692ff;
+
+  /* Layout dimensions */
+  --header-height: 70px;
+}
+
+/* 기본 스타일 초기화:
+모든 요소의 기본 여백 제거 및 box-sizing을 border-box로 설정.
+링크와 폼 요소의 기본 스타일 제거. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 전역 스타일 초기화 */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+img,
+svg {
+  vertical-align: bottom;
+}
+
+body {
+  color: #374151;
+  word-break: keep-all;
+  font-family: "Pretendard", sans-serif;
+}
+
+/*헤더: 고정 위치로 설정하며, 화면 상단에 고정.*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dfdfdf;
+  z-index: 999;
+}
+
+/*본문 레이아웃: 헤더 높이만큼 상단 여백을 추가. */
+.withHeader {
+  margin-top: var(--header-height);
+}
+
+footer {
+  background-color: #111827;
+  color: #9ca3af;
+  font-size: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+#copyright {
+  order: 3;
+  flex-basis: 100%;
+}
+
+#footerMenu {
+  display: flex;
+  gap: 30px;
+  color: var(--gray-200);
+}
+
+#socialMedia {
+  display: flex;
+  gap: 12px;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 0 16px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px;
+  letter-spacing: 0.02em;
+}
+
+/* 버튼 스타일:
+버튼 기본 스타일과 상태(호버, 비활성) 스타일 설정. */
+.button {
+  background-color: var(--blue);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: #1967d6;
+}
+
+.button:focus {
+  background-color: #1251aa;
+}
+
+.button:disabled {
+  background-color: #9ca3af;
+  cursor: default;
+  pointer-events: none;
+}
+
+.pill-button {
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 14.5px 33.5px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.break-on-desktop {
+  display: none;
+}
+
+/* Tablet styles */
+/* 헤더와 푸터에 추가적인 패딩 적용. */
+@media (min-width: 744px) {
+  header {
+    padding: 0 24px;
+  }
+
+  .wrapper {
+    padding: 0 24px;
+  }
+
+  .pill-button {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 16px 126px;
+  }
+
+  footer {
+    padding: 32px 104px 108px 104px;
+  }
+
+  #copyright {
+    flex-basis: auto;
+    order: 0;
+  }
+}
+
+/* Desktop styles */
+/* 중앙 정렬과 넓은 레이아웃을 지원. */
+@media (min-width: 1280px) {
+  header {
+    padding: 0 200px;
+  }
+
+  .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .break-on-desktop {
+    display: inline;
+  }
+
+  footer {
+    padding: 32px 200px 108px 200px;
+  }
+}
